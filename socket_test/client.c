@@ -6,8 +6,8 @@
 #include <sys/un.h>
 
 #define MAXLINE 4096
-#define SOCK_SERVER_PATH "/home/cheny/github/Socket/socket_server"
-#define SOCK_CLIENT_PATH "/home/cheny/github/Socket/socket_client"
+#define SOCK_SERVER_PATH "socket_server"
+#define SOCK_CLIENT_PATH "socket_client"
 
 void main(void)
 {
