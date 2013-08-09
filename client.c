@@ -6,8 +6,8 @@
 #include <sys/un.h>
 
 #define MAXLINE 4096
-#define SOCK_SERVER_PATH "/home/cheny.le/cheny/socket_server"
-#define SOCK_CLIENT_PATH "/home/cheny.le/cheny/socket_client"
+#define SOCK_SERVER_PATH "/home/cheny/github/Socket/socket_server"
+#define SOCK_CLIENT_PATH "/home/cheny/github/Socket/socket_client"
 
 void main(void)
 {
@@ -15,7 +15,7 @@ void main(void)
     struct sockaddr_un server_addr, client_addr;
     socklen_t server_addr_len;
     char buf_send[MAXLINE];
-    char buf_recv[MAXLINE]
+    char buf_recv[MAXLINE];
 
     //unlink no use socket
     if(access(SOCK_CLIENT_PATH, R_OK) == 0) {
@@ -55,17 +55,17 @@ void main(void)
 
     do {
         //send buf
-        memset(buf, 0x00, sizeof(buf));
+        memset(buf_send, 0x00, sizeof(buf_send));
         printf("Input:");
         //scanf("%s", buf);
         //here is a bug, buf may overflow
-        if(gets(buf) == NULL) {
+        if(gets(buf_send) == NULL) {
             perror("gets fail");
         }
-        if(send(client_fd, buf, strlen(buf), 0) != strlen(buf)) {
+        if(send(client_fd, buf_send, strlen(buf_send), 0) != strlen(buf_send)) {
             perror("send fail");
         }
-    } while(strcmp(buf, "quit") != 0);
+    } while(strcmp(buf_send, "quit") != 0);
 
     close(client_fd);
     printf("close ok!\n");

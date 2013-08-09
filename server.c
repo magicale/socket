@@ -4,8 +4,8 @@
 #include <sys/un.h>
 #include <sys/socket.h>
 
-#define SOCK_SERVER_PATH "/home/cheny.le/cheny/socket_server"
-#define SOCK_CLIENT_PATH "/home/cheny.le/cheny/socket_client"
+#define SOCK_SERVER_PATH "/home/cheny/github/Socket/socket_server"
+#define SOCK_CLIENT_PATH "/home/cheny/github/Socket/socket_client"
 #define LISTEN_BACKLOG 10
 #define MAXLINE 4096
 
